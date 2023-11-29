@@ -1,93 +1,111 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-typedef struct{
-    char nome[25];
-    int* valores_tabela;
-} tabela;
+// Definições das estruturas de dados
 
-void CriarTabela(){
+// Estrutura de uma Coluna
+typedef struct {
+    char nome[50]; // Nome da coluna
+    char tipo[20]; // Tipo da coluna (char, int, float, double, string)
+    int chavePrimaria; // É chave primária (1 para sim, 0 para não)
+} Coluna;
+
+// Estrutura da Tabela
+typedef struct {
+    char nome[50];
+    int numColunas;
+    Coluna *colunas; // ponteiro 
+} Tabela;
+
+// Funções para o SGBD
+
+void criarTabela(){
 
 }
 
-void ListarTabelas(){
+void listarTabelas(){
     
 }
 
-void NovaLinha(){
+void inserirLinha(){
     
 }
 
-void ListarDados(){
+void listarDadosTabela(){
     
 }
 
-void PesquisarValor(){
+void pesquisarValorTabela(){
     
 }
 
-void ApagarRegistro(){
+void apagarTupla(){
     
 }
 
-void ApagarTabela(){
+void apagarTabela(){
     
 }
 
-int main()
-{
-    printf("Sistema de Gerenciamento de Banco de Dados (SGBD)\n");
-    printf("0 - Sair do Sistema\n");
-    printf("1 - Criar Tabela\n");
-    printf("2 - Listar Tabelas\n");
-    printf("3 - Nova Linha\n");
-    printf("4 - Listar Dados\n");
-    printf("5 - Pesquisar Valor\n");
-    printf("6 - Apagar Registro\n");
-    printf("7 - Apagar Tabela\n");
-
+int main(){
+    Tabela *tabelas = NULL // ponteiro para tabela
+    int opcao = -1;
     
-    int entrada = -1;
-    
-    while (entrada != 0){
+    while (opcao != 8){
+        printf("Sistema de Gerenciamento de Banco de Dados (SGBD)\n");
+        printf("\nMenu:\n");
+        printf("1. Criar tabela\n");
+        printf("2. Listar tabelas\n");
+        printf("3. Inserir linha\n");
+        printf("4. Listar dados de tabela\n");
+        printf("5. Pesquisar valor em tabela\n");
+        printf("6. Apagar tupla\n");
+        printf("7. Apagar tabela\n");
+        printf("8. Sair\n");
         printf("Digite a opção escolhida: ");
-        scanf("%d", &entrada);
-        
-        
+        scanf("%d", &opcao);
  
-        switch(entrada){
+        switch(opcao){
             case 1:
-                CriarTabela();
-                
-                
-            case 2:
-                ListarTabelas();
-          
-                
-            case 3:
-                NovaLinha();
-              
-                
-            case 4:
-                ListarDados();
-              
-                
-            case 5:
-                PesquisarValor();
-               
-                
-            case 6:
-                ApagarRegistro();
-
-            
-            case 7:
-                ApagarTabela();
-            
-            case 0:
+                criarTabela();
                 break;
-            
+            case 2:
+                listarTabelas();
+                break;
+            case 3:
+                inserirLinha();
+                break;
+            case 4:
+                listarDadosTabela();
+                break;
+            case 5:
+                pesquisarValorTabela();
+                break;
+            case 6:
+                apagarTupla();
+                break;
+            case 7:
+                apagarTabela();
+                break;
+            case 8:
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opcao invalida! Tente novamente.\n");
+                break;
         }
     }
-    
+
+    // Liberar memória alocada para tabelas
+    if (tabelas != NULL) {
+        for (int i = 0; i < numTabelas; ++i) {
+            free(tabelas[i].colunas);
+        }
+        free(tabelas);
+    }
+
+    printf("TESTE: Saiu do loop!!!\n"); // PRINT DE TESTE PARA VER SE ESTÁ SAINDO DO LOOP, APAGAR DEPOIS.
 
     return 0;
 }
