@@ -25,6 +25,7 @@ Foi criado um arquivo Makefile para facilitar a compilação, dessa forma basta 
 - Ana Paula Oliveira de Lima
 
 #### Contribuição dos integrantes no desenvolvimento do projeto.
+- A função principal, modularização do programa em diferentes funções, a função "criarTabela", correção de bugs no geral foram feitas por ambos desenvolvedores;
 - As funções "inserirLinha", "listarDadosTabela", "apagarTabela" foram desenvolvidas por Ana Paula;
 - As funções "listarTabelas", "pesquisarValorTabela", "apagarTupla" foram desenvolvidas por Walter Araújo.
 
